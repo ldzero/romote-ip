@@ -2,11 +2,11 @@
     "images": [  
         {  
             "src": "image1.jpg",  
-            "link": "https://example.com/link1"  
+            "link": "https://cn.bing.com/"  
         },  
         {  
             "src": "image2.jpg",  
-            "link": "https://example.com/link2"  
+            "link": "https://yiyan.baidu.com/"  
         }  
     ]  
 }
