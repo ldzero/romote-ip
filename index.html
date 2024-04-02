@@ -4,6 +4,43 @@
     <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <title>测试页面</title>  
+    <style>  
+        body {  
+            font-family: Arial, sans-serif;  
+            margin: 0;  
+            padding: 0;  
+            display: flex;  
+            flex-direction: column;  
+            align-items: center;  
+            justify-content: center;  
+            height: 100vh;  
+            background-color: #f4f4f4;  
+        }  
+          
+        h1 {  
+            text-align: center;  
+        }  
+          
+        #image-container {  
+            display: flex;  
+            justify-content: space-around;  
+            flex-wrap: wrap;  
+            max-width: 800px;  
+            width: 100%;  
+        }  
+          
+        img {  
+            max-width: 45%; /* 控制图片的最大宽度，避免过大 */  
+            height: auto;  
+            cursor: pointer;  
+            margin: 10px;  
+        }  
+    </style>  
+</head>  
+<body>  
+    <h1>测试</h1>  
+    <div id="image-container"></div>  
+  
     <script>  
         window.onload = function() {  
             fetch('config.json')  
@@ -14,7 +51,6 @@
                         imgElement.src = image.src;  
                         imgElement.alt = '测试图片';  
                         imgElement.style.cursor = 'pointer';  
-                        imgElement.style.margin = '10px';  
                         imgElement.onclick = function() {  
                             window.location.href = image.link;  
                         };  
@@ -22,12 +58,11 @@
                         const container = document.getElementById('image-container');  
                         container.appendChild(imgElement);  
                     });  
+                })  
+                .catch(error => {  
+                    console.error('Error fetching data:', error);  
                 });  
         };  
     </script>  
-</head>  
-<body>  
-    <h1>测试</h1>  
-    <div id="image-container"></div>  
 </body>  
 </html>
