@@ -1,0 +1,33 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>测试页面</title>  
+    <script>  
+        window.onload = function() {  
+            fetch('config.json')  
+                .then(response => response.json())  
+                .then(data => {  
+                    data.images.forEach(image => {  
+                        const imgElement = document.createElement('img');  
+                        imgElement.src = image.src;  
+                        imgElement.alt = '测试图片';  
+                        imgElement.style.cursor = 'pointer';  
+                        imgElement.style.margin = '10px';  
+                        imgElement.onclick = function() {  
+                            window.location.href = image.link;  
+                        };  
+  
+                        const container = document.getElementById('image-container');  
+                        container.appendChild(imgElement);  
+                    });  
+                });  
+        };  
+    </script>  
+</head>  
+<body>  
+    <h1>测试</h1>  
+    <div id="image-container"></div>  
+</body>  
+</html>
